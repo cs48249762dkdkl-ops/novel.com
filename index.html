@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>내 소설 보관함</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- 상단 -->
+    <header class="header">
+        <div class="logo">📚 내 소설 보관함</div>
+
+        <button id="newNovelBtn" class="new-button">
+            ＋ 새 소설
+        </button>
+    </header>
+
+
+    <!-- 메인 -->
+    <main class="container">
+
+        <!-- 소개 -->
+        <section class="welcome">
+            <h1>나만의 소설을 보관하세요</h1>
+
+            <p>
+                내가 쓴 소설을 이곳에 저장하고,
+                언제든 다시 열어 수정하거나 읽을 수 있습니다.
+            </p>
+        </section>
+
+
+        <!-- 검색 -->
+        <section class="search-area">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="소설 제목을 검색하세요..."
+            >
+        </section>
+
+
+        <!-- 소설 작성 화면 -->
+        <section id="editor" class="editor hidden">
+
+            <div class="editor-header">
+                <h2 id="editorTitle">새 소설 작성</h2>
+
+                <button id="closeEditorBtn" class="close-button">
+                    ✕
+                </button>
+            </div>
+
+
+            <label for="novelTitle">
+                소설 제목
+            </label>
+
+            <input
+                type="text"
+                id="novelTitle"
+                placeholder="소설 제목을 입력하세요"
+            >
+
+
+            <label for="novelGenre">
+                장르
+            </label>
+
+            <select id="novelGenre">
+                <option value="판타지">판타지</option>
+                <option value="현대">현대</option>
+                <option value="SF">SF</option>
+                <option value="로맨스">로맨스</option>
+                <option value="스릴러">스릴러</option>
+                <option value="공포">공포</option>
+                <option value="무협">무협</option>
+                <option value="기타">기타</option>
+            </select>
+
+
+            <label for="novelDescription">
+                작품 소개
+            </label>
+
+            <textarea
+                id="novelDescription"
+                rows="4"
+                placeholder="이 소설에 대한 간단한 설명을 입력하세요"
+            ></textarea>
+
+
+            <label for="novelContent">
+                소설 본문
+            </label>
+
+            <textarea
+                id="novelContent"
+                class="content-input"
+                placeholder="여기에 소설을 작성하세요..."
+            ></textarea>
+
+
+            <div class="editor-buttons">
+
+                <button id="saveNovelBtn" class="save-button">
+                    💾 저장
+                </button>
+
+                <button id="cancelBtn" class="cancel-button">
+                    취소
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- 소설 목록 -->
+        <section class="novel-section">
+
+            <div class="section-title">
+                <h2>내 소설</h2>
+
+                <span id="novelCount">
+                    0편
+                </span>
+            </div>
+
+
+            <div id="novelList" class="novel-list">
+
+                <!-- JavaScript에서 소설이 표시됩니다 -->
+
+            </div>
+
+
+            <!-- 소설이 없을 때 -->
+            <div id="emptyMessage" class="empty-message">
+
+                <div class="empty-icon">
+                    📖
+                </div>
+
+                <h3>
+                    아직 저장된 소설이 없습니다.
+                </h3>
+
+                <p>
+                    「＋ 새 소설」 버튼을 눌러 첫 번째 소설을 작성해보세요.
+                </p>
+
+                <button id="emptyNewBtn" class="new-button">
+                    ＋ 첫 소설 작성하기
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- 소설 읽기 창 -->
+    <div id="reader" class="reader hidden">
+
+        <div class="reader-box">
+
+            <button id="closeReaderBtn" class="reader-close">
+                ✕
+            </button>
+
+            <div id="readerGenre" class="reader-genre"></div>
+
+            <h1 id="readerTitle"></h1>
+
+            <p id="readerDescription" class="reader-description"></p>
+
+            <hr>
+
+            <div id="readerContent" class="reader-content"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+
+</body>
+</html>
